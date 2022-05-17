@@ -9,10 +9,10 @@ namespace ServidorMedidorDAL.DAL
 {
     public interface IMedidorDAL
     {
-        void AgregarMedidor(Medidor medidor);
+        void AgregarLectura(Medidor medidor);
 
-        List<Medidor> ObtenerMedidor();
-        List<Medidor> FiltrarMedidor(string nombre);
+        List<Medidor> ObtenerLectura();
+        List<Medidor> FiltrarLectura(string nombre);
         
     }
 }

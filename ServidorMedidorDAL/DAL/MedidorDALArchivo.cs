@@ -26,9 +26,9 @@ namespace ServidorMedidorDAL.DAL
 
         private static string archivo = "idMedidor.txt";
         private static string ruta = Directory.GetCurrentDirectory() + "/" + archivo;       //ctrl + . para agregar algo
-        private static string archivo2 = "medidor.txt";
+        private static string archivo2 = "lecturas.txt";
         private static string ruta2 = Directory.GetCurrentDirectory() + "/" + archivo2;
-        public void AgregarMedidor(Medidor medidor)
+        public void AgregarLectura(Medidor medidor)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace ServidorMedidorDAL.DAL
         }
 
 
-        public List<Medidor> ObtenerMedidor()
+        public List<Medidor> ObtenerLectura()
         {
             List<Medidor> medidor = new List<Medidor>();
             using (StreamReader reader = new StreamReader(ruta2))
@@ -79,9 +79,9 @@ namespace ServidorMedidorDAL.DAL
             return medidor;
         }
 
-        public List<Medidor> FiltrarMedidor(string nombre)
+        public List<Medidor> FiltrarLectura(string nombre)
         {
-            return ObtenerMedidor().FindAll(p => p.NombreMedidor == nombre);
+            return ObtenerLectura().FindAll(p => p.NombreMedidor == nombre);
  
         }
 

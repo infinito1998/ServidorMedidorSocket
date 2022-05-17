@@ -16,9 +16,9 @@ namespace ServidorMedidorSocket.HebraCom
             this.clienteCom = clienteCon;
         }
 
-        static bool BuscarMedidor(string respuesta)
+        static bool BuscarLectura(string respuesta)
         {
-            List<Medidor> filtradas = medidorDAL.FiltrarMedidor(respuesta);
+            List<Medidor> filtradas = medidorDAL.FiltrarLectura(respuesta);
             bool codigo = false;
             filtradas.ForEach(p => codigo = true);
             if (codigo)
@@ -42,7 +42,7 @@ namespace ServidorMedidorSocket.HebraCom
             clienteCom.Escribir("Ingrese Día de Consumo: ");
             string fecha = clienteCom.Leer();
             
-            bool Confirmar = BuscarMedidor(idMedidor);
+            bool Confirmar = BuscarLectura(idMedidor);
             if (Confirmar)
             {
                 Medidor m = new Medidor()
@@ -53,7 +53,7 @@ namespace ServidorMedidorSocket.HebraCom
                 };
                 lock (medidorDAL)
                 {
-                    medidorDAL.AgregarMedidor(m);
+                    medidorDAL.AgregarLectura(m);
                 }
                 Console.WriteLine("Numero de Medidor: {0}", idMedidor);
                 Console.WriteLine("KiloWatts Consumidos: {0}", cKiloWatts);

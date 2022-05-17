@@ -44,8 +44,8 @@ namespace ServidorMedidorSocket.Operaciones
         public void Desconectar()
         {
             try
-            {   
-                    // error de instancia. pero es como nos eneseñó
+            {
+                // error de instancia. pero es como nos eneseñó
                     this.cliente.Close();
             }
             catch (Exception ex)

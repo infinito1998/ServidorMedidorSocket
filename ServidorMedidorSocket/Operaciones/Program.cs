@@ -11,9 +11,9 @@ namespace ServidorMedidorSocket
 {
     public partial class Program
     {
-        static bool BuscarMedidor(string respuesta)
+        static bool BuscarLectura(string respuesta)
         {
-            List<Medidor> filtradas = medidorDAL.FiltrarMedidor(respuesta);
+            List<Medidor> filtradas = medidorDAL.FiltrarLectura(respuesta);
             bool codigo=false;
             filtradas.ForEach(p => codigo = true);
             if (codigo)
@@ -26,9 +26,9 @@ namespace ServidorMedidorSocket
             }
 
         }
-        static void IngresarMedidor(Medidor m)
+        static void IngresarLectura(Medidor m)
         {
-            medidorDAL.AgregarMedidor(m);
+            medidorDAL.AgregarLectura(m);
         }
     }
 }

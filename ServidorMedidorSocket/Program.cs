@@ -68,7 +68,7 @@ namespace ServidorMedidorSocket
             Console.WriteLine("Ingrese Día de Consumo: ");
             string fecha = Console.ReadLine().Trim();
             Console.WriteLine("Día de Consumo: {0}", fecha);
-            bool Confirmar = BuscarMedidor(idMedidor);
+            bool Confirmar = BuscarLectura(idMedidor);
             if (Confirmar)
             {
                 Medidor m = new Medidor()
@@ -79,7 +79,7 @@ namespace ServidorMedidorSocket
                 };
                 lock (medidorDAL)
                 {
-                    medidorDAL.AgregarMedidor(m);
+                    medidorDAL.AgregarLectura(m);
                 }
                 Console.WriteLine("Agregado Correctamente");
                 
@@ -94,7 +94,7 @@ namespace ServidorMedidorSocket
             List<Medidor> medidores = null;
             lock (medidorDAL)
             {
-                medidores = medidorDAL.ObtenerMedidor();
+                medidores = medidorDAL.ObtenerLectura();
             }
             foreach (Medidor medidor in medidores)
             {
